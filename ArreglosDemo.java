@@ -317,8 +317,74 @@ class ArrayProb7{
 class ArrayProb8{
     //10 elements
     public static void ex8(){
+        Scanner entrada = new Scanner(System.in);
+        int a[] = new int[10];
+        int numero, posicion;
 
+// Introduciendo los primeros 8 elementos del arreglo.
+        for (int i = 0; i < 8; i++) {
+            System.out.print((i + 1) + ". Digite un número: ");
+            a[i] = entrada.nextInt();
+        }
 
+// Ingresar 2 número en posiciones determinadas por el usuario.
+        for (int i = 0; i < 2; i++) {
+
+            System.out.print("\nDigite una posición entre 1-10 del arreglo "
+                    + "\ndonde quiere ingresar el número anterior: ");
+            posicion = entrada.nextInt();
+
+            System.out.print("\nDigite un número más para ingresar: ");
+            numero = entrada.nextInt();
+
+            int cont = 9;
+            for (int j = cont; j >= posicion; j--) {
+                a[j] = a[j - 1];
+            }
+            a[posicion-1] = numero;
+
+        }
+
+// Imprimiendo el arreglo.
+        System.out.print("El arreglo es: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(a[i] + ", ");
+        }
+        System.out.print("\b\b.");
+
+    }
+
+}
+class ArrayProb9{
+    /**
+     *
+     * Ejercicio 9: Crear un programa que lea por teclado una tabla de 10 números enteros y la
+     * * desplace una posición hacia abajo: el primero pasa a ser el segundo,
+     * * el segundo pasa a ser el tercero y así sucesivamente. El último pasa a ser el primero.*
+     */
+    public static void ex9(){
+        Scanner entrada = new Scanner(System.in);
+        int arreglo[] = new int[10];
+        int ultimo;
+
+        System.out.println("llenar");
+        for (int i=0; i<10; i++){
+            System.out.println( i + ". Digite un numero:");
+            arreglo[i] = entrada.nextInt();
+        }
+
+        ultimo = arreglo[9]; //guardamos el ultimo elemento
+
+        for (int i=8; i>=0; i--){ //avanzar una posicion abajo en el arreglo
+            arreglo[i+1] = arreglo[i];
+        }
+
+        arreglo[0] = ultimo; //ponemos elemento como primero
+
+        System.out.println("\n el nuevo arreglo es: ");
+        for (int i=0; i<10; i++){
+            System.out.println(i + "Numero: " + arreglo[i]);
+        }
     }
 
 }
@@ -332,6 +398,7 @@ public class ArreglosDemo {
         //ArraysProb1.Ex1();
         //ArraysProb3.ex3();
         //ArrayProb3b.ex3b();
-        ArrayProb7.ex7();
+        //ArrayProb7.ex7();
+        ArrayProb8.ex8();
 }}
 
