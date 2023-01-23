@@ -386,7 +386,36 @@ class ArrayProb9{
             System.out.println(i + "Numero: " + arreglo[i]);
         }
     }
+}
+class ArrayProb10{
 
+    /**
+     * Crear un programa que lea por teclado una tabla de 10 num
+     * y desplace N posiciones en el arreglo (N by user)*
+     */
+    public static void ex10(){
+        Scanner entrada= new Scanner(System.in);
+        int arreglo[]= new int [10];
+        int p, d=0;
+
+        for(int i=0; i<10; i++){
+            System.out.print("Ingrese un número");
+            arreglo[i]=entrada.nextInt();
+        }
+        System.out.print("Digite el número de posiciones: ");
+        p=entrada.nextInt();
+
+        for(int x=1; x<=p; x++){
+            d=arreglo[9];
+            for(int i=8; i>=0; i--){
+                arreglo[i+1]=arreglo[i];
+            }
+            arreglo[0]=d;
+        }
+        for(int z:arreglo){
+            System.out.print(z);
+        }
+    }
 }
 
 public class ArreglosDemo {
