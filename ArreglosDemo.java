@@ -417,6 +417,55 @@ class ArrayProb10{
         }
     }
 }
+class ArrayProb11{
+    public static void ex11(){
+        Scanner entrada = new Scanner(System.in);
+        int arreglo[] = new int[10];
+        boolean creciente = true;
+        int numero,sitio_num=0,j=0;
+        System.out.println("Llenar el arreglo");
+        do{
+            //read
+            for(int i=0; i<5; i++){
+                System.out.print((i+1) + ". digite un numero");
+                arreglo[i] = entrada.nextInt();
+            }
+            //comprobar si el arreglo esta ordenado en orden creciente
+            for(int i =0; i<4;i++){
+                if(arreglo[i] < arreglo[i+1]){//creciente: 1-2-3
+                    creciente = true;
+                }
+                if(arreglo[i] > arreglo[i+1]){//decreciente: 3-2-1
+                    creciente = false;
+                    break;
+                }
+            }
+            if(creciente == false){
+                System.out.println("\n el arreglo no esta ordenado en forma creciente, vuela a digitar");
+            }
+        }while (creciente == false);
+
+        System.out.println("\n digite un elemento a insertar ");
+        numero = entrada.nextInt();
+
+        //indica que posicion va el numero
+        while (arreglo[j]<numero && j<5){
+            sitio_num++;
+            j++;
+        }
+        //trasladamos una posicion en el arreglo a los elementos que van detras de numero
+        for(int i=4; i>=sitio_num; i--){
+            arreglo[i+1] = arreglo[i];
+        }
+        //insertamos el numero que el usuario puso
+        arreglo[sitio_num] = numero;
+        System.out.println("\n el arreglo queda");
+        for(int i=0; i<6; i++){
+            System.out.println(arreglo[i] + "-");
+        }
+    }
+
+}
 
 public class ArreglosDemo {
 
@@ -428,6 +477,7 @@ public class ArreglosDemo {
         //ArraysProb3.ex3();
         //ArrayProb3b.ex3b();
         //ArrayProb7.ex7();
-        ArrayProb8.ex8();
+        //ArrayProb8.ex8();
+        ArrayProb11.ex11();
 }}
 
