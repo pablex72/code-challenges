@@ -561,6 +561,72 @@ class ArrayProb13{
     }
 }
 
+class ArrayProb14{
+    public static void ex14(){
+        Scanner scanner = new Scanner(System.in);
+        int[] ser1 = new int[10];
+        int[] ser2 = new int[10];
+
+        //read
+        System.out.println("introduce 1st serie");
+        for (int i = 0; i<10; i++){
+            System.out.println("introduce" + (i+1));
+            ser1[i] = scanner.nextInt();
+        }
+        System.out.println("introduce 2nd serie");
+        for (int i = 0; i<10; i++){
+            System.out.println("introduce" + (i+1));
+            ser2[i] = scanner.nextInt();
+        }
+
+        //order crecientemente each array
+        for(int i = 0; i < 9 ; i++ ){
+            if (ser1[i] < ser1[i + 1]) {
+                ser1[i] = ser1[i];
+            } else {
+                ser1[i] = ser1[i + 1];
+            }
+        }
+        System.out.println();
+        for (int i:ser1 ) {
+            System.out.println("ser1 " + i);
+        }
+        for(int i = 0; i < 9 ; i++ ){
+            if (ser2[i] < ser2[i + 1]) {
+                //continue;
+                ser2[i] = ser2[i];
+            } else {
+                ser2[i] = ser2[i + 1];
+            }
+        }
+        System.out.println();
+        for (int i:ser2 ) {
+            System.out.println("ser2 " + i);
+        }
+        int[] fusion = new int[20];
+        for (int i=0; i< 10; i++){
+            fusion[i] = ser1[i];
+            //fusion[i+1] = ser2[i];
+        }
+        for (int i=10; i< 20; i++){
+            //fusion[i] = ser1[i];
+            fusion[i] = ser2[i-10];
+        }
+        // order last time
+        for (int i=0; i<19; i++){
+            if(fusion[i]<fusion[i+1]){
+                continue;
+            }else {
+                fusion[i] = fusion [i+1];
+            }
+        }
+        for (int i : fusion ) {
+            System.out.println( "this is fusion " + i);
+        }
+        System.out.println();
+    }
+}
+
 public class ArreglosDemo {
 
     public static void main(String[] args) {
@@ -574,6 +640,7 @@ public class ArreglosDemo {
         //ArrayProb8.ex8();
         //ArrayProb11.ex11();
         //ArrayProb12.ex12();
-        ArrayProb13.ex13();
+        //ArrayProb13.ex13();
+        ArrayProb14.ex14();
 }}
 
