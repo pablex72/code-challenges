@@ -507,6 +507,60 @@ class ArrayProb12{
     }
 }
 
+class ArrayProb13{
+    /**
+     * Ejercicio 13: Leer 10 enteros. Guardar en otra tabla los elementos pares de la primera,
+     * y a continuación los elementos impares.*
+     */
+    public static void ex13(){
+        Scanner scanner = new Scanner(System.in);
+        int arreglo[] = new int[10];
+        int conteo_pares = 0, conteo_impares=0;
+
+        System.out.println("llenar el arreglo");
+        for (int i=0; i<10 ; i++){
+            System.out.println((i+1) + "  digite un numero  ");
+            arreglo[i]= scanner.nextInt();
+
+            if(arreglo[i] % 2==0){
+                conteo_pares++;
+            }
+            else { //si es impar el conteo de impares aumenta
+                conteo_impares++;
+            }
+        }
+
+        //crear los arreglos
+        int par[] = new int[conteo_pares]; //cremos el arreglo para pares
+        int impar[] = new int[conteo_impares]; //cremos el arreglo para impares
+
+        conteo_pares=0;
+        conteo_impares=0;
+        //almacenamos los numeros pares en su arreglo y los impares tambien
+        for (int i=0; i<10; i++){
+            if(arreglo[i] % 2 == 0){
+                par[conteo_pares] = arreglo[i];
+                conteo_pares++;
+            }else{
+                impar[conteo_impares] = arreglo[i];
+                conteo_impares++;
+            }
+        }
+        System.out.println("\n arreglo pares: ");
+        for(int i=0; i<conteo_pares; i++){
+            System.out.println(par[i]);
+        }
+        System.out.println("\n arreglo impares: ");
+        for(int i=0; i<conteo_impares; i++){
+            System.out.println(impar[i]);
+        }
+        System.out.println("\n arreglo total: ");
+        for(int i=0; i<arreglo.length; i++){
+            System.out.println(arreglo[i]);
+        }
+    }
+}
+
 public class ArreglosDemo {
 
     public static void main(String[] args) {
@@ -519,6 +573,7 @@ public class ArreglosDemo {
         //ArrayProb7.ex7();
         //ArrayProb8.ex8();
         //ArrayProb11.ex11();
-        ArrayProb12.ex12();
+        //ArrayProb12.ex12();
+        ArrayProb13.ex13();
 }}
 
