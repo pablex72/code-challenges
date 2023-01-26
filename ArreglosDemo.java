@@ -626,6 +626,56 @@ class ArrayProb14{
         System.out.println();
     }
 }
+class ArrayProb15{
+    public static void ex15(){
+
+        Scanner scanner = new Scanner(System.in);
+        int arreglo[], numero;
+        boolean creciente = true;
+
+        arreglo = new int[10];
+        do{
+            System.out.println("ingrese");
+            for (int i=0; i<10;i++){
+                System.out.println((i+1) + " digite");
+                arreglo[i] = scanner.nextInt();
+            }
+            for (int i=0; i<9; i++){
+                if(arreglo[i]<arreglo[i+1]){//creciente 1-2-3-4
+                    creciente = true;
+                }
+                if(arreglo[i] > arreglo[i+1]){//decreciente 3-2-1
+                    creciente = false;
+                    break; // si se cumple una vez salte
+                }
+            }
+            if(creciente == false){
+                System.out.println("ingrese creciente");
+            }
+        }while(creciente == false);
+
+        //pedimos el numero a buscar ne el arreglo
+        System.out.println("digite el numero abuscar en el arreglo");
+        numero = scanner.nextInt();
+        //buscamos el numero en el arreglo
+        int i=0;
+        while(i<10 && arreglo[i]<numero){
+            i++;
+        }
+        if(i==10){
+            System.out.println("numero no encontrado");
+        }else{
+            if(arreglo[i] == numero){
+                System.out.println("numero encontrado en" + i);
+            }
+            else{
+                System.out.println("numero no encontrado");
+            }
+        }
+
+    }
+
+}
 
 public class ArreglosDemo {
 
